@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./login.css'>
+    <script src='./login.js'></script>
+</head>
+<body>
+    <div id="logo-container">
+        <img src="../../imagens/desktop/Logo.png" alt="Logo" id="logo-image">
+        <h2 id="catchat">CatChat</h2>
+    </div>
+    <div id="login-form-container">
+        <form>
+            <h3 id="login">Login</h3>
+
+            <input type="text" placeholder="Usuário" id="uname" required>
+            <input type="password" placeholder="Senha" id="psw" required>
+
+            <button type="submit" id="enter" onclick="login();">Entrar</button>
+        </form>
+    </div>
+    <div id="signup-button-container">
+        <button type="submit" id="signup" onclick="signup();">Cadastre-se</button>
+    </div>
+</body>
+</html>
