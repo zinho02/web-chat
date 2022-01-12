@@ -17,8 +17,12 @@
         <form>
             <h3 id="login">Login</h3>
 
-            <input type="text" placeholder="Usuário" id="uname" required>
-            <input type="password" placeholder="Senha" id="psw" required>
+            <input type="text" placeholder="Usuário" id="uname" required
+            oninvalid="this.setCustomValidity('Usuário não pode ser vazio')"
+            onchange="this.setCustomValidity('')">
+            <input type="password" placeholder="Senha" id="psw" required
+            oninvalid="this.setCustomValidity('Senha não pode ser vazia')"
+            onchange="this.setCustomValidity('')">
 
             <button type="submit" id="enter" onclick="login();">Entrar</button>
         </form>
