@@ -1,7 +1,8 @@
 function login() {
     alert('Login');
+    /* Mandar para backend endpoint login*/
 }
 
 function signup() {
-    alert('Signup');
+    window.location.href = "../signup/signup.html";
 }

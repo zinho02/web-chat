@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cadastre-se</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./signup.css'>
+    <script src='./signup.js'></script>
+</head>
+<body>
+    <div id="logo-container">
+        <img src="../../imagens/desktop/Logo.png" alt="Logo" id="logo-image">
+        <h2 id="catchat">CatChat</h2>
+    </div>
+    <div id="signup-form-container">
+        <form>
+            <h3 id="signup">Cadastre-se</h3>
+
+            <input type="text" placeholder="Usuário" id="uname" required>
+            <input type="password" placeholder="Digite sua senha" id="psw1" required>
+            <input type="password" placeholder="Digite sua senha novamente" id="psw2" required>
+            <input type="email" placeholder="Email" id="email" required>
+
+            <button type="submit" id="signup-button" onclick="signup();">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

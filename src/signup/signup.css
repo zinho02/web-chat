@@ -20,24 +20,6 @@ body {
     text-shadow: 2px 2px rgba(0, 0, 0, 0.25) ;
 }
 
-#login {
-    position: absolute;
-    width: 393px;
-    height: 157px;
-    left: 1029px;
-    top: 130px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 56px;
-
-    color: #FF7A00;
-
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.25) ;
-}
-
 #logo-image {
     position: absolute;
     width: 408px;
@@ -46,6 +28,24 @@ body {
     top: 150px;
 
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#signup {
+    position: absolute;
+    width: 393px;
+    height: 157px;
+    left: 950px;
+    top: 130px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    
+    color: #FF7A00;
+
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.25) ;
 }
 
 #uname {
@@ -78,7 +78,7 @@ body {
     color: rgba(52, 52, 52, 0.25);
 }
 
-#psw {
+#psw1 {
     position: absolute;
     width: 355px;
     height: 58px;
@@ -90,7 +90,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#psw:placeholder-shown {
+#psw1:placeholder-shown {
     background-image: url('../../imagens/desktop/key-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
@@ -104,38 +104,78 @@ body {
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
+
     color: rgba(52, 52, 52, 0.25);
 }
 
-#enter {
+#psw2 {
     position: absolute;
     width: 355px;
     height: 58px;
-    left: 910px;
-    top: 485px;
+    left: 911px;
+    top: 494px;
     border: 0px;
-
-    background: #FFB179;
+    
+    background: rgba(99, 99, 99, 0.25);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 
+#psw2:placeholder-shown {
+    background-image: url('../../imagens/desktop/key-solid.svg');
+    background-size: 5%;
+    background-repeat: no-repeat;
+    background-position: left, center;
+    background-position-x: 3%;
+    background-blend-mode: lighten;
+    transition: 500ms;
+    text-indent: 40px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 21px;
 
-    color: #FF7A00;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(52, 52, 52, 0.25);
 }
 
-#signup {
+#email {
     position: absolute;
     width: 355px;
     height: 58px;
-    left: 912px;
-    top: 687px;
+    left: 911px;
+    top: 618px;
     border: 0px;
     
+    background: rgba(99, 99, 99, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#email:placeholder-shown {
+    background-image: url('../../imagens/desktop/envelope-square-solid.svg');
+    background-size: 5%;
+    background-repeat: no-repeat;
+    background-position: left, center;
+    background-position-x: 3%;
+    background-blend-mode: lighten;
+    transition: 500ms;
+    text-indent: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: rgba(52, 52, 52, 0.25);
+}
+
+#signup-button {
+    position: absolute;
+    width: 355px;
+    height: 58px;
+    left: 911px;
+    top: 800px;
+    border: 0px;
+
     background: #FFB179;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
