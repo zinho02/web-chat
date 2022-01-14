@@ -1,4 +1,10 @@
 function signup() {
+    /*
+    1 - Mandar para endpoint do backend os dados (usuário, senha, email)
+    2 - Endpoint verificar se não existe na base de dados o usuário ou email
+    2.1 - Caso tenha, retorne erro
+    2.2 - Caso não tenha, salve na base de dados e retorne sucesso e entre na tela de login
+    */
 }
 
 function verify() {

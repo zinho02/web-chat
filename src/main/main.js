@@ -1,4 +1,10 @@
 function addContact() {
+    /*
+    1 - Manda para endpoint no backend o usuário
+    2 - Endpoint adiciona na base de dados dos contatos dos dois usuários
+    3 - Endpoint retorna lista de contatos
+    4 - Frontend atualiza
+    */
     var selectContact = document.createElement("div");
     selectContact.className = "select-contact";
     var input = document.createElement("input");
@@ -22,9 +28,37 @@ function addContact() {
 }
 
 function catContact() {
+    /*
+    1 - Manda para endpoint no backend o id da conversa
+    2 - Endpoint retorna lista ordenada das mensagens
+    3 - Frontend atualiza elas
+    */
 
 }
 
+function updateMessages() {}
+
 function removeContact(contact) {
+    /*
+    1 - Manda o nome de usuário para um endpoint no backend
+    2 - Endpoint remove o usuário da base de dados dos contatos dos dois usuários
+    3 - Depois de retorna a lista de contatos (updateContacts()), atualizar no frontend
+    */
     contact.parentElement.remove();
+    updateContacts();
+}
+
+function updateContacts() {
+    /*
+    1 - Endpoint retorna lista de contatos
+    */
+}
+
+function sendMessage() {
+    /*
+    1 - Manda mensagem para endpoint no backend
+    2 - Endpoint adiciona mensagem na base de dados dos dois usuários
+    3 - Endpoint retorna a lista de mensagens ordenada
+    4 - Frontend atualiza
+    */
 }
