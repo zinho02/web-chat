@@ -134,3 +134,95 @@
     height: 25px;
     float: right;
 }
+
+.remove-contact {
+    width: 25px;
+    height: 25px;
+    float: right;
+}
+
+#header {
+    background-color: #FEA86A;
+    background-image: url('../resources/images/icons/cat-solid.svg');
+    background-size: 7%;
+    background-repeat: no-repeat;
+    background-position: left, center;
+    background-position-x: 3%;
+    position: absolute;
+    width: 915px;
+    height: 84px;
+    left: 525px;
+    top: 0px;
+}
+
+#contact-name {
+    position: absolute;
+    width: 128px;
+    height: 42px;
+    left: 200px;
+    top: 21px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #000000;
+
+}
+
+#chat {
+    position: absolute;
+    width: 916px;
+    height: 815px;
+    left: 524px;
+    top: 85px;
+
+    background: rgba(189, 189, 189, 0.25);
+}
+
+#input-text {
+    position: absolute;
+    width: 750px;
+    height: 57px;
+    left: 50px;
+    top: 720px;
+    border: 0px;
+
+    background: #FEA86A;
+    border-radius: 10px;
+}
+
+#input-text:placeholder-shown {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: rgba(52, 52, 52, 0.25);
+}
+
+#send-text-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 750px;
+    top: 725px;
+}
+
+.message-sender {
+    width: 416px;
+    height: 30px;
+    background: #FEA86A;
+    border-radius: 10px;
+}
+
+.message-receiver {
+    width: 416px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    float: right;
+}

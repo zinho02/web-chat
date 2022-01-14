@@ -11,12 +11,11 @@
 <body>
     <div id="contacts-container">
         <h3 id="contacts-text">Contatos</h3>
-        <input type="image" src="../resources/images/icons/bars-solid.svg" id="close-nav" onclick="closeNav()"/>
-
         <nav id="contacts-list">
             <div class="select-contact">
                 Contato 1
                 <input type="image" src="../resources/images/icons/cat-solid.svg" class="cat-contact" onclick="catContact()"/>
+                <input type="image" src="../resources/images/icons/user-times-solid.svg" class="remove-contact" onclick="removeContact(this)"/>
             </div>
         </nav>
 
@@ -27,6 +26,22 @@
 
     </div>
     <div id="chat-container">
+        <div id="header">
+            <div id="contact-name">
+                Contato
+            </div>
+
+        </div>
+        <div id="chat">
+            <div class="message-sender">
+                Mensagem 1
+            </div>
+            <div class="message-receiver">
+                Mensagem 2
+            </div>
+            <input type="text" placeholder="Digite sua mensagem" id="input-text" onkeydown="sendMessage(this)">
+            <input type="image" src="../resources/images/icons/cat-solid.svg" id="send-text-button" onclick="sendMessage()">
+        </div>
     </div>
     
 </body>
