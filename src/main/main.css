@@ -1,0 +1,136 @@
+#contacts-container {
+    position: absolute;
+    width: 493px;
+    height: 900px;
+    left: 0px;
+    top: 0px;
+
+    background: #FEA86A;
+}
+
+#logo-image {
+    position: absolute;
+    width: 191px;
+    height: 141px;
+    left: 150px;
+    top: 600px;
+    
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#catchat {
+    position: absolute;
+    width: 191px;
+    height: 141px;
+    left: 150px;
+    top: 650px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 169px;
+    
+    color: #030303;
+
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.25) ;
+}
+
+#contacts-text {
+    position: absolute;
+    width: 299px;
+    height: 74px;
+    left: 208px;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #000000;
+}
+
+#add-contact-text {
+    position: absolute;
+    width: 226px;
+    height: 40px;
+    left: 130px;
+    top: 450px;
+    border: 0px;
+    
+    background: #FCB573;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#add-contact-text:placeholder-shown {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(52, 52, 52, 0.25);
+}
+
+#add-contact-button {
+    position: absolute;
+    width: 230px;
+    height: 40px;
+    left: 130px;
+    top: 500px;
+    border-color: #FCB573;
+
+    background-image: url('../resources/images/icons/user-plus-solid.svg');
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: left, center;
+    background-position-x: 3%;
+    background-blend-mode: lighten;
+    transition: 500ms;
+    text-indent: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+#close-nav {
+    position: absolute;
+    width: 32px;
+    height: 35px;
+    left: 448px;
+    top: 22px;
+}
+
+#contacts-list {
+    position: absolute;
+    width: 226px;
+    height: 300px;
+    left: 130px;
+    top: 100px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.select-contact {
+    background-image: url('../resources/images/icons/user-solid.svg');
+    background-size: 7%;
+    background-repeat: no-repeat;
+    background-position: left, center;
+    background-position-x: 3%;
+    background-blend-mode: lighten;
+    transition: 500ms;
+    text-indent: 40px;
+    width: 210px;
+    height: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cat-contact {
+    width: 25px;
+    height: 25px;
+    float: right;
+}
