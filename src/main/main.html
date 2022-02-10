@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>CatChat</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
+<div class="desktop-display">
     <div id="contacts-container">
         <h3 id="contacts-text">Contatos</h3>
         <nav id="contacts-list">
             <div class="select-contact">
                 Contato 1
-                <input type="image" src="../resources/images/icons/cat-solid.svg" class="cat-contact" onclick="catContact()"/>
-                <input type="image" src="../resources/images/icons/user-times-solid.svg" class="remove-contact" onclick="removeContact(this)"/>
+                <input type="image" src="../resources/images/icons/cat-solid.svg" class="cat-contact" onclick="catContact()" alt="Contatos"/>
+                <input type="image" src="../resources/images/icons/user-times-solid.svg" class="remove-contact" onclick="removeContact(this)" alt="Remover"/>
             </div>
         </nav>
 
-        <input type="text" placeholder="Digite o contato" id="add-contact-text">
+        <input type="text" placeholder="Digite o contato" id="add-contact-text"/>
         <button type="submit" id="add-contact-button" onclick="addContact()">Adicionar contato</button>
         <img src="../resources/images/logos/logo-orange-bg.png" alt="Logo" id="logo-image">
         <h3 id="catchat">CatChat</h3>
@@ -40,9 +42,46 @@
                 Mensagem 2
             </div>
             <input type="text" placeholder="Digite sua mensagem" id="input-text" onkeydown="sendMessage(this)">
-            <input type="image" src="../resources/images/icons/cat-solid.svg" id="send-text-button" onclick="sendMessage()">
+            <input type="image" src="../resources/images/icons/cat-solid.svg" id="send-text-button" onclick="sendMessage()" alt="Enviar">
         </div>
     </div>
-    
+</div>
+<div class="mobile-display">
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; background-color: #FEA86A;" id="leftMenu">
+        <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Voltar &times;</button>
+        <div class="contato-side">
+            <p id="contatos">Contatos</p>
+        </div>
+        <div class="sidebar">
+        <nav id="contacts-list-m">
+            <div class="select-contact">
+                Contato 1
+                <input type="image" src="../resources/images/icons/cat-solid.svg" class="cat-contact" onclick="catContact()" alt="Contatos"/>
+                <input type="image" src="../resources/images/icons/user-times-solid.svg" class="remove-contact" onclick="removeContact(this)" alt="Remover"/>
+            </div>
+        </nav>
+
+        <input type="text" placeholder="Digite o contato" id="add-contact-text-m"/>
+        <button type="submit" id="add-contact-button-m" onclick="addContact()">Adicionar contato</button>
+        </div>
+    </div>
+    <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+        <div class="w3-container">
+            <div class="login-mobile">
+                <img src="../resources/images/logos/logo.png" alt="Logo" id="logoImg">
+            </div>
+        </div>
+    </div>
+    <div class="contato">
+        <p id="contato">Contato</p>
+    </div>
+    <div class="chat">
+        <div class="message-sender">Mensagem 1</div>
+        <div class="message-receiver">Mensagem 2</div>
+    </div>
+    <input type="text" placeholder="Digite sua mensagem" id="input-text-m" onkeydown="sendMessage(this)">
+    <input type="image" src="../resources/images/icons/cat-solid.svg" id="send-text-button-m" onclick="sendMessage()" alt="Enviar">
+</div>
 </body>
 </html>

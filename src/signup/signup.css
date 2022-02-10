@@ -1,3 +1,87 @@
+.mobile-display {display:none}
+
+.desktop-display {display:block}
+
+@media (max-width:800px) {
+    .desktop-display {display:none}
+    .mobile-display {display:block}
+}
+
+.login-mobile {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-mobile {
+    display: block;
+    content: '';
+}
+
+#logoImg {
+    width: 40%;
+    height: 10%;
+}
+
+#for-labels {
+    text-align: left;
+}
+
+.login {
+    margin-top: 0;
+    margin-bottom: 10%;
+    font-size: 48px;
+    font-family: Roboto, fantasy;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 56px;
+
+    color: #FF7A00;
+
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.25) ;
+}
+
+label {
+    text-align: left;
+    font-size: 30px !important;
+}
+
+input {
+    display: block;
+    margin-bottom: 10%;
+
+    width: 300px;
+    height: 50px;
+
+    font-family: Roboto, fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    background: rgba(99, 99, 99, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#send {
+    margin-top: 10%;
+
+    width: 300px;
+    height: 50px;
+
+    background: #FFB179;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: Roboto, fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FF7A00;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 body {
     background: #FFF1E1;
 }

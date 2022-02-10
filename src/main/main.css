@@ -1,9 +1,103 @@
+.mobile-display {display:none}
+
+.desktop-display {display:block}
+
+@media (max-width:800px) {
+    .desktop-display {display:none}
+    .mobile-display {display:block}
+}
+
+.sidebar {
+
+}
+
+#leftMenu {
+    width: 100%;
+}
+
+.login-mobile {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+#input-text-m {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 7%;
+    background: #FEA86A;
+    border-radius: 10px;
+}
+
+#send-text-button-m {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#logoImg {
+    width: 40%;
+    height: 10%;
+}
+
+.contato {
+    margin-top: 35%;
+    background-color: #FF7A00;
+    width: 100%;
+    text-align: center;
+}
+
+.contato-side {
+    background-color: #FF7A00;
+    width: 100%;
+    text-align: center;
+}
+
+#contato {
+    font-size: 48px;
+    margin-bottom: 0;
+}
+
+#contatos {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.chat {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    bottom: 7%;
+    background-color: rgba(189, 189, 189, 0.25);
+    padding: 15px;
+}
+
+.w3-teal {
+    background-color: #FF7A00 !important;
+}
+
+.w3-container {
+    padding: 0 !important;
+}
+
+body {
+    background: #FFF1E1;
+}
+
 #contacts-container {
     position: absolute;
     width: 493px;
     height: 900px;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
 
     background: #FEA86A;
 }
@@ -15,7 +109,7 @@
     left: 150px;
     top: 600px;
     
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #catchat {
@@ -25,7 +119,7 @@
     left: 150px;
     top: 650px;
 
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 50px;
@@ -41,9 +135,9 @@
     width: 299px;
     height: 74px;
     left: 208px;
-    top: 0px;
+    top: 0;
 
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -58,14 +152,26 @@
     height: 40px;
     left: 130px;
     top: 450px;
-    border: 0px;
+    border: 0;
     
     background: #FCB573;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#add-contact-text-m {
+    position: absolute;
+    width: 226px;
+    height: 40px;
+    left: 25%;
+    top: 49%;
+    border: 0;
+
+    background: #FCB573;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #add-contact-text:placeholder-shown {
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -90,7 +196,31 @@
     background-blend-mode: lighten;
     transition: 500ms;
     text-indent: 40px;
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+#add-contact-button-m {
+    position: absolute;
+    width: 230px;
+    height: 40px;
+    left: 25%;
+    top: 55%;
+    border-color: #FCB573;
+
+    background-image: url('../resources/images/icons/user-plus-solid.svg');
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: left, center;
+    background-position-x: 3%;
+    background-blend-mode: lighten;
+    transition: 500ms;
+    text-indent: 40px;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -115,6 +245,16 @@
     overflow-y: scroll;
 }
 
+#contacts-list-m {
+    position: absolute;
+    width: 226px;
+    height: 300px;
+    left: 25%;
+    top: 15%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
 .select-contact {
     background-image: url('../resources/images/icons/user-solid.svg');
     background-size: 7%;
@@ -126,7 +266,7 @@
     text-indent: 40px;
     width: 210px;
     height: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .cat-contact {
@@ -152,7 +292,7 @@
     width: 915px;
     height: 84px;
     left: 525px;
-    top: 0px;
+    top: 0;
 }
 
 #contact-name {
@@ -162,7 +302,7 @@
     left: 200px;
     top: 21px;
 
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;
@@ -188,14 +328,14 @@
     height: 57px;
     left: 50px;
     top: 720px;
-    border: 0px;
+    border: 0;
 
     background: #FEA86A;
     border-radius: 10px;
 }
 
 #input-text:placeholder-shown {
-    font-family: Roboto;
+    font-family: Roboto, fantasy;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -213,13 +353,17 @@
 }
 
 .message-sender {
+    margin-bottom: 15px;
     width: 416px;
     height: 30px;
     background: #FEA86A;
     border-radius: 10px;
+    padding-left: 15px;
 }
 
 .message-receiver {
+    margin-bottom: 15px;
+    padding-left: 15px;
     width: 416px;
     height: 30px;
     background: #FFFFFF;
