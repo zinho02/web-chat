@@ -6,36 +6,34 @@
     <title>Cadastre-se</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./signup.css'>
-    <script src='./signup.js'></script>
 </head>
 <body>
 <div class="desktop-display">
     <div id="logo-container">
-        <img src="../resources/images/logos/logo.png" alt="Logo" id="logo-image">
+        <img src="./resources/images/logos/logo.png" alt="Logo" id="logo-image">
         <h2 id="catchat">CatChat</h2>
     </div>
     <div id="signup-form-container">
         <form id="signup-form">
             <h3 id="signup">Cadastre-se</h3>
-
-            <input type="text" placeholder="Usuário" id="uname" required
+            <input type="text" placeholder="Usuário" id="uname" name="uname" required
             oninvalid="this.setCustomValidity('Usuário não pode ser vazio')"
             onchange="this.setCustomValidity('')">
             <input type="password" placeholder="Digite sua senha" id="psw1" name="psw1" required
             onchange="verify()">
             <input type="password" placeholder="Digite sua senha novamente" id="psw2" name="psw2" required
             onchange="verify()">
-            <input type="email" placeholder="Email" id="email" required
+            <input type="email" placeholder="Email" id="email" name="email" required
             oninvalid="this.setCustomValidity('Digite um email válido')"
             onchange="this.setCustomValidity('')">
 
-            <button type="submit" id="signup-button" onclick="signup();">Cadastrar</button>
+            <button type="submit" id="signup-button">Cadastrar</button>
         </form>
     </div>
 </div>
 <div class="mobile-display">
     <div class="login-mobile">
-        <img src="../resources/images/logos/logo.png" alt="Logo" id="logoImg">
+        <img src="./resources/images/logos/logo.png" alt="Logo" id="logoImg">
     </div>
     <div class="login-mobile">
         <form class="form-mobile">
@@ -59,9 +57,10 @@
                        onchange="this.setCustomValidity('')">
             </div>
 
-            <button type="submit" id="send" onclick="login();">Entrar</button>
+            <button type="submit" id="send" onclick="signupMobile();">Entrar</button>
         </form>
     </div>
 </div>
+<script src='./signup.js'></script>
 </body>
 </html>

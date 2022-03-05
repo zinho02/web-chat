@@ -1,11 +1,34 @@
+signup_button = document.getElementById("signup-button");
+signup_button.addEventListener("click", signup);
+
 function signup() {
-    /*
-    1 - Mandar para endpoint do backend os dados (usuário, senha, email)
-    2 - Endpoint verificar se não existe na base de dados o usuário ou email
-    2.1 - Caso tenha, retorne erro
-    2.2 - Caso não tenha, salve na base de dados e retorne sucesso e entre na tela de login
-    */
+    var form = document.getElementById("signup-form");
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3000/create-user", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(serializeJSON(form));
 }
+
+function serializeJSON (form) {
+    var obj = {};
+    Array.prototype.slice.call(form.elements).forEach(function (field) {
+      if (!field.name || field.disabled || ['file', 'reset', 'submit', 'button'].indexOf(field.type) > -1) return;
+      if (field.type === 'select-multiple') {
+        var options = [];
+        Array.prototype.slice.call(field.options).forEach(function (option) {
+          if (!option.selected) return;
+          options.push(option.value);
+        });
+        if (options.length) {
+          obj[field.name] = options;
+        }
+        return;
+      }
+      if (['checkbox', 'radio'].indexOf(field.type) > -1 && !field.checked) return;
+      obj[field.name] = field.value;
+    });
+    return JSON.stringify(obj, null, 2);
+  }
 
 function verify() {
     form = document.getElementById("signup-form");

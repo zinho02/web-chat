@@ -145,7 +145,7 @@ body {
 }
 
 #uname:placeholder-shown {
-    background-image: url('../resources/images/icons/user-solid.svg');
+    background-image: url('./resources/images/icons/user-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;
@@ -175,7 +175,7 @@ body {
 }
 
 #psw1:placeholder-shown {
-    background-image: url('../resources/images/icons/key-solid.svg');
+    background-image: url('./resources/images/icons/key-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;
@@ -205,7 +205,7 @@ body {
 }
 
 #psw2:placeholder-shown {
-    background-image: url('../resources/images/icons/key-solid.svg');
+    background-image: url('./resources/images/icons/key-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;
@@ -235,7 +235,7 @@ body {
 }
 
 #email:placeholder-shown {
-    background-image: url('../resources/images/icons/envelope-square-solid.svg');
+    background-image: url('./resources/images/icons/envelope-square-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;
