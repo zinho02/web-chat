@@ -1,12 +1,46 @@
 signup_button = document.getElementById("signup-button");
 signup_button.addEventListener("click", signup);
 
+var usernameExists = "Usuário já existe.";
+var invalidUsername = "Nome de usuário inválido.\nO nome deve conter apenas letras minúsculas e números.";
+var invalidPassword = "Senha inválida.\nAs senhas devem ser iguais.\nDevem conter de 8 até 100 caracteres.\nTer letras minúsculas e maísculas.\nTer pelo menos 2 dígitos.";
+var emailExists = "Email já existe.";
+var invalidEmail = "Endereço de email inválido.";
+
+signup_form = document.getElementById("signup-form");
+uname = signup_form.uname;
+psw1 = signup_form.psw1;
+psw2 = signup_form.psw2;
+email = signup_form.email;
+
 function signup() {
-    var form = document.getElementById("signup-form");
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/create-user", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(serializeJSON(form));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+          var status = String(JSON.parse(xhr.responseText).status); 
+          if (status === 'usernameExists') {
+            uname.setCustomValidity(usernameExists);
+          }
+          if (status === 'invalidUsername') {
+            uname.setCustomValidity(invalidUsername);
+          }
+          if (status === 'invalidPassword') {
+            psw1.setCustomValidity(invalidPassword);
+          }
+          if (status === 'emailExists') {
+            email.setCustomValidity(emailExists);
+          }
+          if (status === 'invalidEmail') {
+            email.setCustomValidity(invalidEmail);
+          }
+          if (status === 'valid') {
+            alert("Criado!");
+          }
+      }
+  }
+    xhr.open("POST", "http://localhost:3000/create-user", false);
+    xhr.send(serializeJSON(signup_form));
 }
 
 function serializeJSON (form) {
@@ -31,10 +65,6 @@ function serializeJSON (form) {
   }
 
 function verify() {
-    form = document.getElementById("signup-form");
-    psw1 = form.psw1;
-    psw2 = form.psw2;
-
     if (psw1.value !== psw2.value) {
         psw2.setCustomValidity("As senhas devem ser iguais");
         return false;
