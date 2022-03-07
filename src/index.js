@@ -7,7 +7,6 @@ var helmet = require('helmet');
 var rateLimit = require("express-rate-limit");
 var crypto = require("crypto");
 var password_validator = require("password-validator");
-const { callbackify } = require('util');
 
 var app = express();
 var server = http.createServer(app);
@@ -33,11 +32,16 @@ const limiter = rateLimit({
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './signup')));
+app.use(express.static(path.join(__dirname, './login')));
 app.use(helmet());
 app.use(limiter);
 
-app.get('/', function(req,res){
+app.get('/signup', function(req,res){
     res.sendFile(path.join(__dirname,'./signup/signup.html'));
+  });
+
+  app.get('/', function(req,res){
+    res.sendFile(path.join(__dirname,'./login/login.html'));
   });
 
 server.listen(3000, function(){
@@ -127,6 +131,40 @@ app.post('/create-user', function(req,res){
     return;
   }
   db.run('INSERT INTO usuarios (nome, senha, email) VALUES(?,?,?)', [req.body.uname, crypto.createHash('sha256').update(req.body.psw1).digest('hex'), req.body.email]);
+  res.json(valid);
+  return;
+})
+
+app.post('/create-user-m', function(req,res){
+  console.log(req.body);
+  verifyUsernameExists(req.body.uname_m)
+  .then(row => {
+    if (row == 1) {
+      res.json(usernameExists);
+      return;
+    }
+  })
+  .catch(err => console.log(err));
+  if (!verifyUsername(req.body.uname_m)) {
+    res.json(invalidUsername);
+    return;
+  }
+  if (!verifyPassword(req.body.psw1_m, req.body.psw2_m)) {
+    res.json(invalidPassword);
+    return;
+  }
+  verifyEmailExists(req.body.email_m)
+  .then(row => {
+    if (row == 1) {
+      res.json(emailExists);
+      return;
+    }
+  })
+  if (!verifyEmail(req.body.email_m)) {
+    res.json(invalidEmail);
+    return;
+  }
+  db.run('INSERT INTO usuarios (nome, senha, email) VALUES(?,?,?)', [req.body.uname_m, crypto.createHash('sha256').update(req.body.psw1_m).digest('hex'), req.body.email_m]);
   res.json(valid);
   return;
 })

@@ -145,7 +145,7 @@ body {
 }
 
 #uname:placeholder-shown {
-    background-image: url('../resources/images/icons/user-solid.svg');
+    background-image: url('./resources/images/icons/user-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;
@@ -175,7 +175,7 @@ body {
 }
 
 #psw:placeholder-shown {
-    background-image: url('../resources/images/icons/key-solid.svg');
+    background-image: url('./resources/images/icons/key-solid.svg');
     background-size: 5%;
     background-repeat: no-repeat;
     background-position: left, center;

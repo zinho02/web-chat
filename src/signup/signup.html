@@ -32,32 +32,31 @@
     </div>
 </div>
 <div class="mobile-display">
-    <div class="login-mobile">
-        <img src="./resources/images/logos/logo.png" alt="Logo" id="logoImg">
+    <div class="logo-container-m">
+        <img src="./resources/images/logos/logo.png" alt="Logo" id="logo-img-m">
     </div>
     <div class="login-mobile">
-        <form class="form-mobile">
+        <form class="form-mobile" id="form-mobile">
             <h3 class="login">Cadastre-se</h3>
             <div id="for-labels">
                 <label class="login" for="uname-m">Usuário</label>
-                <input type="text" placeholder="Usuário" id="uname-m" required
+                <input type="text" placeholder="Usuário" id="uname-m" name="uname_m" required
                        oninvalid="this.setCustomValidity('Usuário não pode ser vazio')"
                        onchange="this.setCustomValidity('')">
                 <label class="login" for="psw1-m">Senha</label>
-                <input type="password" placeholder="Senha" id="psw1-m" required
+                <input type="password" placeholder="Senha" id="psw1-m" name="psw1_m" required
                        oninvalid="this.setCustomValidity('Senha não pode ser vazia')"
                        onchange="this.setCustomValidity('')">
                 <label class="login" for="psw2-m">Senha novamente</label>
-                <input type="password" placeholder="Senha" id="psw2-m" required
+                <input type="password" placeholder="Senha" id="psw2-m" name="psw2_m" required
                        oninvalid="this.setCustomValidity('Senha não pode ser vazia')"
                        onchange="this.setCustomValidity('')">
                 <label class="login" for="email-m">Email</label>
-                <input type="password" placeholder="Email" id="email-m" required
-                       oninvalid="this.setCustomValidity('Email não pode ser vazio')"
-                       onchange="this.setCustomValidity('')">
+                <input type="email" placeholder="Email" id="email-m" name="email_m" required
+                oninvalid="this.setCustomValidity('Digite um email válido')"
+                onchange="this.setCustomValidity('')">
             </div>
-
-            <button type="submit" id="send" onclick="signupMobile();">Entrar</button>
+            <button type="submit" id="send">Cadastrar</button>
         </form>
     </div>
 </div>
