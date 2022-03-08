@@ -103,21 +103,3 @@ function serializeJSON (form) {
     });
     return JSON.stringify(obj, null, 2);
   }
-
-function verify() {
-    if (psw1.value !== psw2.value) {
-        psw2.setCustomValidity("As senhas devem ser iguais");
-        return false;
-    }
-    if (psw1.value === '') {
-        psw1.setCustomValidity("A senha não pode ser vazia");
-        return false;
-    }
-    if (psw2.value === '') {
-        psw2.setCustomValidity("A senha não pode ser vazia");
-        return false;
-    }
-    psw1.setCustomValidity('');
-    psw2.setCustomValidity('');
-    return true;
-}

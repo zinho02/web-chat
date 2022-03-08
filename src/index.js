@@ -48,6 +48,18 @@ server.listen(3000, function(){
 console.log("server is listening on port: 3000");
 });
 
+var invalidUsernameOrPassword = { status : 'invalidUsernameOrPassword'};
+function verifyUsernameOrPassword(username, passwordHash) {
+  return new Promise((resolve, reject) => {
+    db.get('SELECT nome, senha FROM usuarios u WHERE u.nome = ? AND u.senha = ?', [username, passwordHash], (err, row) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(row);
+    });
+  })
+}
+
 var usernameExists = { status : 'usernameExists'};
 function verifyUsernameExists(username) {
   return new Promise((resolve, reject) => {
@@ -135,8 +147,31 @@ app.post('/create-user', function(req,res){
   return;
 })
 
+app.post('/login', function(req,res) {
+  verifyUsernameOrPassword(req.body.uname, crypto.createHash('sha256').update(req.body.psw).digest('hex'))
+  .then(row => {
+    if (row == null) {
+      res.json(invalidUsernameOrPassword);
+      return;
+    }
+  })
+  .catch(err => console.log(err));
+  return;
+})
+
+app.post('/login-m', function(req,res) {
+  verifyUsernameOrPassword(req.body.uname_m, crypto.createHash('sha256').update(req.body.psw_m).digest('hex'))
+  .then(row => {
+    if (row == null) {
+      res.json(invalidUsernameOrPassword);
+      return;
+    }
+  })
+  .catch(err => console.log(err));
+  return;
+})
+
 app.post('/create-user-m', function(req,res){
-  console.log(req.body);
   verifyUsernameExists(req.body.uname_m)
   .then(row => {
     if (row == 1) {

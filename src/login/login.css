@@ -82,6 +82,25 @@ input {
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+#signup-m {
+    margin-top: 10%;
+
+    width: 300px;
+    height: 50px;
+
+    background: #FFB179;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: Roboto, fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FF7A00;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 body {
     background: #FFF1E1;
 }

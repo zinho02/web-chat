@@ -20,9 +20,9 @@
             oninvalid="this.setCustomValidity('Usuário não pode ser vazio')"
             onchange="this.setCustomValidity('')">
             <input type="password" placeholder="Digite sua senha" id="psw1" name="psw1" required
-            onchange="verify()">
+            onchange="this.setCustomValidity('')">
             <input type="password" placeholder="Digite sua senha novamente" id="psw2" name="psw2" required
-            onchange="verify()">
+            onchange="this.setCustomValidity('')">
             <input type="email" placeholder="Email" id="email" name="email" required
             oninvalid="this.setCustomValidity('Digite um email válido')"
             onchange="this.setCustomValidity('')">
@@ -33,7 +33,7 @@
 </div>
 <div class="mobile-display">
     <div class="logo-container-m">
-        <img src="./resources/images/logos/logo.png" alt="Logo" id="logo-img-m">
+        <img src="./resources/images/logos/logo.png" alt="Logo" id="logoImg">
     </div>
     <div class="login-mobile">
         <form class="form-mobile" id="form-mobile">
