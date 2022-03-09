@@ -7,6 +7,8 @@ var helmet = require('helmet');
 var rateLimit = require("express-rate-limit");
 var crypto = require("crypto");
 var password_validator = require("password-validator");
+const cookie_parser = require("cookie-parser");
+const sessions = require('express-session');
 
 var app = express();
 var server = http.createServer(app);
@@ -14,6 +16,7 @@ var io = require('socket.io')(server);
 
 var db = new sqlite3.Database('./db/web-chat.db');
 db.run('CREATE TABLE IF NOT EXISTS usuarios(nome TEXT constraint pk_nome_usuario primary key, senha TEXT, email TEXT)')
+db.run('CREATE TABLE IF NOT EXISTS contatos(usuario1 TEXT, usuario2 TEXT, constraint fk_usuario1 foreign key(usuario1) references usuarios(nome), constraint fk_usuario2 foreign key(usuario2) references usuarios(nome))')
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -33,15 +36,30 @@ const limiter = rateLimit({
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './signup')));
 app.use(express.static(path.join(__dirname, './login')));
+app.use(express.static(path.join(__dirname, './main')));
 app.use(helmet());
 app.use(limiter);
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(sessions({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+app.use(cookie_parser());
+
+var session;
 
 app.get('/signup', function(req,res){
     res.sendFile(path.join(__dirname,'./signup/signup.html'));
   });
 
   app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname,'./login/login.html'));
+    if (session == null) {
+      res.sendFile(path.join(__dirname,'./login/login.html'));
+    } else {
+      res.sendFile(path.join(__dirname,'./main/main.html'))
+    }
   });
 
 server.listen(3000, function(){
@@ -113,6 +131,25 @@ function verifyEmail(email) {
     );
 }
 
+var usernameNotExists = {status : 'usernameNotExists'};
+app.post('/add-user', function(req,res){
+  console.log(req.body);
+  verifyUsernameExists(req.body.uname)
+  .then(row => {
+    console.log(row);
+    if (row == 0) {
+      res.json(usernameNotExists);
+      return;
+    } else {
+      db.run('INSERT INTO contatos (usuario1, usuario2) VALUES(?,?)', [session.userid, req.body.uname]);
+      db.run('INSERT INTO contatos (usuario1, usuario2) VALUES(?,?)', [req.body.uname, session.userid]);
+      res.json(valid);
+      return;
+    }
+  })
+  .catch(err => console.log(err));
+})
+
 var valid = { status : 'valid' };
 app.post('/create-user', function(req,res){
   verifyUsernameExists(req.body.uname)
@@ -153,6 +190,10 @@ app.post('/login', function(req,res) {
     if (row == null) {
       res.json(invalidUsernameOrPassword);
       return;
+    } else {
+      session = req.session;
+      session.userid = req.body.uname;
+      res.redirect("/main");
     }
   })
   .catch(err => console.log(err));
@@ -165,6 +206,10 @@ app.post('/login-m', function(req,res) {
     if (row == null) {
       res.json(invalidUsernameOrPassword);
       return;
+    } else {
+      session = req.session;
+      session.userid = req.body.uname_m;
+      res.redirect("/main");
     }
   })
   .catch(err => console.log(err));

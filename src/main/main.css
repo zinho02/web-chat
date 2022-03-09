@@ -187,7 +187,7 @@ body {
     top: 500px;
     border-color: #FCB573;
 
-    background-image: url('../resources/images/icons/user-plus-solid.svg');
+    background-image: url('./resources/images/icons/user-plus-solid.svg');
     background-size: 10%;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -211,7 +211,7 @@ body {
     top: 55%;
     border-color: #FCB573;
 
-    background-image: url('../resources/images/icons/user-plus-solid.svg');
+    background-image: url('./resources/images/icons/user-plus-solid.svg');
     background-size: 10%;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -256,7 +256,7 @@ body {
 }
 
 .select-contact {
-    background-image: url('../resources/images/icons/user-solid.svg');
+    background-image: url('./resources/images/icons/user-solid.svg');
     background-size: 7%;
     background-repeat: no-repeat;
     background-position: left, center;
@@ -283,7 +283,7 @@ body {
 
 #header {
     background-color: #FEA86A;
-    background-image: url('../resources/images/icons/cat-solid.svg');
+    background-image: url('./resources/images/icons/cat-solid.svg');
     background-size: 7%;
     background-repeat: no-repeat;
     background-position: left, center;

@@ -1,3 +1,67 @@
+add_contact_button = document.getElementById("add-contact-button");
+add_contact_button.addEventListener("click", add_contact);
+add_contact_text = document.getElementById("add-contact-text");
+
+add_contact_button_m = document.getElementById("add-contact-button-m");
+add_contact_button_m.addEventListener("click", add_contact_m);
+add_contact_text_m = document.getElementById("add-contact-text-m");
+
+var usernameNotExists = "Usuários não existe.";
+
+function add_contact() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        var status = String(JSON.parse(xhr.responseText).status);
+        if (status === 'usernameNotExists') {
+            add_contact_text.setCustomValidity(usernameNotExists);
+            add_contact_text.reportValidity();
+        } else {
+            var selectContact = document.createElement("div");
+            selectContact.className = "select-contact";
+            var input = document.createElement("input");
+            input.setAttribute("type", "image");
+            input.setAttribute("src", "./resources/images/icons/cat-solid.svg");
+            input.setAttribute("onclick", "catContact()");
+            input.className = "cat-contact";
+        
+            var remove = document.createElement("input");
+            remove.setAttribute("type", "image");
+            remove.setAttribute("src", "./resources/images/icons/user-times-solid.svg");
+            remove.setAttribute("onclick", "removeContact(this)");
+            remove.className = "remove-contact";
+        
+            var contactsList = document.getElementById("contacts-list");
+            selectContact.innerHTML = add_contact_text.value;
+            selectContact.appendChild(input);
+            selectContact.appendChild(remove);
+            contactsList.appendChild(selectContact);
+        }
+    }
+    }
+    xhr.open("POST", "http://localhost:3000/add-user", false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({uname : add_contact_text.value}, null, 2));
+}
+
+function add_contact_m() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        var status = String(JSON.parse(xhr.responseText).status);
+        if (status === 'usernameNotExists') {
+            add_contact_text_m.setCustomValidity(usernameNotExists);
+            add_contact_text_m.reportValidity();
+        } else {
+          alert("Entrei na tela principal");
+        }
+    }
+    }
+    xhr.open("POST", "http://localhost:3000/add-user", false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({uname : add_contact_text_m.value}, null, 2));
+}
+
 function openLeftMenu() {
     document.getElementById("leftMenu").style.display = "block";
 }
