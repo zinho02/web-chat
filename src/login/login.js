@@ -25,8 +25,6 @@ function login() {
           var status = String(JSON.parse(xhr.responseText).status); 
           if (status === 'invalidUsernameOrPassword') {
             uname.setCustomValidity(invalidUsernameOrPassword);
-          } else {
-            alert("Entrei na tela principal");
           }
       }
     }
@@ -42,8 +40,6 @@ function loginMobile() {
           var status = String(JSON.parse(xhr.responseText).status); 
           if (status === 'invalidUsernameOrPassword') {
             uname.setCustomValidity(invalidUsernameOrPassword);
-          } else {
-            alert("Entrei na tela principal");
           }
       }
     }

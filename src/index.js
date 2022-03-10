@@ -90,6 +90,17 @@ function verifyUsernameExists(username) {
   })
 }
 
+function selectAllContacts(username) {
+  return new Promise((resolve, reject) => {
+    db.all('SELECT usuario2 FROM contatos c WHERE c.usuario1 = ?', username, (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(rows);
+    });
+  })
+}
+
 var invalidUsername = { status : 'invalidUsername' };
 function verifyUsername(username) {
   return String(username).match(/^[a-z0-9]+$/);
@@ -133,10 +144,8 @@ function verifyEmail(email) {
 
 var usernameNotExists = {status : 'usernameNotExists'};
 app.post('/add-user', function(req,res){
-  console.log(req.body);
   verifyUsernameExists(req.body.uname)
   .then(row => {
-    console.log(row);
     if (row == 0) {
       res.json(usernameNotExists);
       return;
@@ -148,6 +157,22 @@ app.post('/add-user', function(req,res){
     }
   })
   .catch(err => console.log(err));
+})
+
+app.post('/all-contacts', function(req,res){
+  selectAllContacts(session.userid)
+  .then(rows => {
+    res.json(rows);
+    return;
+  })
+  .catch(err => console.log(err));
+})
+
+app.post('/remove-user', function(req,res){
+  db.run('DELETE FROM contatos WHERE usuario1 = ? AND usuario2 = ?', [session.userid, req.body.uname]);
+  db.run('DELETE FROM contatos WHERE usuario1 = ? AND usuario2 = ?', [req.body.uname, session.userid]);
+  res.json(valid);
+  return;
 })
 
 var valid = { status : 'valid' };
